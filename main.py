@@ -8,6 +8,10 @@ TURNOS_VALIDOS = ["manhã", "tarde", "noite"]
 # Funções auxiliares de leitura (evitam que o programa rebente
 # quando o utilizador escreve texto em vez de um número)
 # ---------------------------------------------------------------
+# ---------------------------------------------------------------
+# Funções auxiliares de leitura (evitam que o programa rebente
+# quando o utilizador escreve texto em vez de um número)
+# ---------------------------------------------------------------
 def ler_int(mensagem, minimo=None):
     while True:
         try:
