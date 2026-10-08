@@ -1,6 +1,5 @@
 from abc import ABC, abstractmethod
 
-
 class Pessoa(ABC):
 
     def __init__(self, nome, idade):
@@ -30,7 +29,6 @@ class Pessoa(ABC):
     @abstractmethod
     def mostrar_informacoes(self):
         pass
-
 
 class Hospede(Pessoa):
 
@@ -100,7 +98,6 @@ class Hospede(Pessoa):
         else:
             print(f"{self._nome} não tem nenhum quarto atribuído para efetuar checkout.")
 
-
 class Funcionario(Pessoa):
 
     def __init__(self, nome, idade, salario, id_func=0):
@@ -138,7 +135,6 @@ class Funcionario(Pessoa):
     def mostrar_informacoes(self):
         print(f"Funcionário: {self._nome} | ID: {self._id_func} | Idade: {self._idade} | Salário: {self._salario:.2f}€")
 
-
 class Gerente(Funcionario):
 
     def __init__(self, nome, idade, salario, bonus=200.0):
@@ -156,7 +152,6 @@ class Gerente(Funcionario):
         for func in funcionarios:
             func.mostrar_informacoes()
         print("==========================================\n")
-
 
 class Recepcionista(Funcionario):
     def __init__(self, nome, id_func, idade, salario, turno="manhã", **kwargs):

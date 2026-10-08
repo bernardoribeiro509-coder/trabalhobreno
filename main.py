@@ -3,11 +3,6 @@ from quartos import QuartoLuxo, QuartoSimples
 
 TURNOS_VALIDOS = ["manhã", "tarde", "noite"]
 
-
-# ---------------------------------------------------------------
-# Funções auxiliares de leitura (evitam que o programa rebente
-# quando o utilizador escreve texto em vez de um número)
-# --------------------------------------------------------------
 def ler_int(mensagem, minimo=None):
     while True:
         try:
@@ -18,7 +13,6 @@ def ler_int(mensagem, minimo=None):
             return valor
         except ValueError:
             print("Erro: introduza um número inteiro válido.")
-
 
 def ler_float(mensagem, minimo=None):
     while True:
@@ -31,14 +25,12 @@ def ler_float(mensagem, minimo=None):
         except ValueError:
             print("Erro: introduza um número válido.")
 
-
 def ler_turno():
     while True:
         turno = input("Turno (manhã/tarde/noite): ").strip().lower()
         if turno in TURNOS_VALIDOS:
             return turno
         print("Erro: turno inválido. Escolha entre: manhã, tarde, noite.")
-
 
 def ler_id_funcionario(funcionarios):
     while True:
@@ -48,13 +40,11 @@ def ler_id_funcionario(funcionarios):
         else:
             return id_func
 
-
 def obter_recepcionista(funcionarios):
     for f in funcionarios:
         if isinstance(f, Recepcionista):
             return f
     return None
-
 
 def obter_gerente(funcionarios):
     for f in funcionarios:
@@ -62,10 +52,6 @@ def obter_gerente(funcionarios):
             return f
     return None
 
-
-# ---------------------------------------------------------------
-# Quartos
-# ---------------------------------------------------------------
 def listar_quartos(quartos):
     print("\n--- QUARTOS ---")
     if len(quartos) == 0:
@@ -73,7 +59,6 @@ def listar_quartos(quartos):
     for q in quartos:
         q.mostrar_informacoes()
     print()
-
 
 def adicionar_quarto(quartos):
     print("\n--- ADICIONAR QUARTO ---")
@@ -101,10 +86,6 @@ def adicionar_quarto(quartos):
     quartos.append(quarto)
     print(f"Quarto {numero} adicionado com sucesso.\n")
 
-
-# ---------------------------------------------------------------
-# Funcionários
-# ---------------------------------------------------------------
 def adicionar_funcionario(funcionarios):
     print("\n--- ADICIONAR FUNCIONÁRIO ---")
     print("1 - Gerente")
@@ -143,14 +124,12 @@ def adicionar_funcionario(funcionarios):
     funcionarios.append(funcionario)
     print(f"Funcionário {nome} adicionado com sucesso.\n")
 
-
 def relatorio_funcionarios(funcionarios):
     gerente = obter_gerente(funcionarios)
     if gerente is None:
         print("\nÉ necessário ter um gerente registado para gerar o relatório.\n")
         return
     gerente.gerar_relatorio(funcionarios)
-
 
 def registar_reparo(funcionarios):
     print("\n--- REGISTAR REPARO ---")
@@ -172,10 +151,6 @@ def registar_reparo(funcionarios):
     tecnicos[escolha - 1].registrar_reparo(descricao)
     print()
 
-
-# ---------------------------------------------------------------
-# Hóspedes
-# ---------------------------------------------------------------
 def registar_hospede(funcionarios, hospedes, quartos):
     print("\n--- REGISTAR HÓSPEDE ---")
 
@@ -208,14 +183,12 @@ def registar_hospede(funcionarios, hospedes, quartos):
     hospede.atribuir_quarto(quarto)
     print()
 
-
 def listar_hospedes(funcionarios, hospedes):
     recepcionista = obter_recepcionista(funcionarios)
     if recepcionista is None:
         print("\nÉ necessário ter um recepcionista registado.\n")
         return
     recepcionista.listar_hospedes(hospedes)
-
 
 def checkout(hospedes):
     print("\n--- CHECKOUT ---")
@@ -233,10 +206,6 @@ def checkout(hospedes):
         print("Hóspede inválido.")
     print()
 
-
-# ---------------------------------------------------------------
-# Programa principal
-# ---------------------------------------------------------------
 def main():
     quartos = []
     funcionarios = []
@@ -278,7 +247,6 @@ def main():
             break
         else:
             print("Opção inválida!\n")
-
 
 if __name__ == "__main__":
     main()
