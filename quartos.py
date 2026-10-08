@@ -49,9 +49,7 @@ class QuartoSimples(Quarto):
 
     def mostrar_informacoes(self):
         status = "Ocupado" if self._ocupado else "Livre"
-        print(
-            f"Quarto {self._numero} ({self._tipo}) | Preço/Diária: {self._preco_diaria:.2f}€ | Status: {status}"
-        )
+        print(f"Quarto {self._numero} ({self._tipo}) | Preço/Diária: {self._preco_diaria:.2f}€ | Status: {status}")
 
 
 class QuartoLuxo(Quarto):
@@ -68,6 +66,4 @@ class QuartoLuxo(Quarto):
     def mostrar_informacoes(self):
         status = "Ocupado" if self._ocupado else "Livre"
         jacuzzi = "Com Jacuzzi" if self._inclui_jacuzzi else "Sem Jacuzzi"
-        print(
-            f"Quarto {self._numero} ({self._tipo} - {jacuzzi}) | Preço/Diária: {self._preco_diaria:.2f}€ | Status: {status}"
-        )
+        print(f"Quarto {self._numero} ({self._tipo} - {jacuzzi}) | Preço/Diária: {self._preco_diaria:.2f}€ | Status: {status}")
