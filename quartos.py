@@ -38,7 +38,6 @@ class Quarto(ABC):
 
     @abstractmethod
     def mostrar_informacoes(self):
-        """Método abstrato a ser implementado pelas subclasses."""
         pass
 
 
